@@ -3,10 +3,10 @@ From [Portfolio Project1]..Covid_death$
 where continent is not null
 order by 3,4
 
---Select *
---From [Portfolio Project1]..Covid_vaccinations$
---where continent is not null
---order by 3,4
+Select *
+From [Portfolio Project1]..Covid_vaccinations$
+where continent is not null
+order by 3,4
 
 -- select data that we would going to be using
 
