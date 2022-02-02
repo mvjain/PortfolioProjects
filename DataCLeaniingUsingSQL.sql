@@ -2,6 +2,7 @@
 Select *
 From [Portfolio Project1]..NashvilleHousing
 
+--converting from datetime format to date format--
 
 Select SaleDate , CONVERT( date, SaleDate)
 From [Portfolio Project1]..NashvilleHousing
@@ -42,7 +43,7 @@ Join [Portfolio Project1]..NashvilleHousing b
   And a.UniqueID <> b.UniqueID
 
 
- --- Breaking Aress into individual columns
+ --- Breaking Aress into individual columns---
 
  Select PropertyAddress
 From [Portfolio Project1]..NashvilleHousing
@@ -75,7 +76,7 @@ From [Portfolio Project1]..NashvilleHousing
 Select OwnerAddress
 From [Portfolio Project1]..NashvilleHousing
 
----Alternative method 
+---Alternative method ---
 
 Select 
 PARSENAME(replace(OwnerAddress, ',', '.'),3),
@@ -108,7 +109,7 @@ Add OwnerSplitState	 Nvarchar(255);
 Update NashvilleHousing
 Set OwnerSplitState  = PARSENAME(replace(OwnerAddress, ',', '.'),1)
 
----Changing Y and N to Yes and No in " Sold as Vacant" field
+---Changing Y and N to Yes and No in " Sold as Vacant" field---
 
 Select Distinct(SoldAsVacant), count(SoldAsVacant)
 From [Portfolio Project1]..NashvilleHousing
@@ -129,7 +130,7 @@ Set SoldAsVacant = CASE when SoldAsVacant = 'Y' then 'Yes'
 	 end
 
 
----Remove Duplicates
+---Remove Duplicates---
 
 With RowNumCTE As(
 Select * ,
@@ -148,7 +149,7 @@ From [Portfolio Project1]..NashvilleHousing
 select *
 From RowNumCTE
 Where row_num >1
---Order by PropertyAddress
+
 
 	
 	
